@@ -89,12 +89,13 @@ const Navbar = () => {
                 {/* Logout Button */}
                 <div className="p-4 lg:p-8 border-t border-gray-700">
                     <button
-                        onClick={handleLogout}
-                        className={`flex items-center w-full px-3 lg:px-6 py-3 lg:py-4 ${colors.text.secondary} hover:${colors.bg.tertiary} hover:${colors.text.primary} rounded-xl lg:rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg group`}
-                    >
-                        <LogOut className="w-5 h-5 lg:w-6 lg:h-6 mr-2 lg:mr-4 group-hover:scale-110 transition-transform duration-300" />
-                        <span className="font-semibold text-sm lg:text-lg">Logout</span>
-                    </button>
+    type="button"
+    onClick={handleLogout}
+    className={`flex items-center w-full px-3 lg:px-6 py-3 lg:py-4 ${colors.text.secondary} hover:${colors.bg.tertiary} hover:${colors.text.primary} rounded-xl lg:rounded-2xl transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg group`}
+>
+    <LogOut className="w-5 h-5 lg:w-6 lg:h-6 mr-2 lg:mr-4 group-hover:scale-110 transition-transform duration-300" />
+    <span className="font-semibold text-sm lg:text-lg">Logout</span>
+</button>
                 </div>
             </div>
 
