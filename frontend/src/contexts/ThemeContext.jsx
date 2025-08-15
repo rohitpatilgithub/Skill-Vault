@@ -52,18 +52,22 @@ export const ThemeProvider = ({ children }) => {
         primary: isDarkMode ? 'bg-gray-900' : 'bg-gray-50',
         secondary: isDarkMode ? 'bg-gray-200' : 'bg-gray-200',
         card: isDarkMode ? 'bg-gray-800' : 'bg-white',
+        input: isDarkMode ? 'bg-gray-800' : 'bg-white',
       },
       // Text colors
       text: {
         primary: isDarkMode ? 'text-white' : 'text-gray-900',
         secondary: isDarkMode ? 'text-gray-300' : 'text-gray-600',
         tertiary: isDarkMode ? 'text-gray-400' : 'text-gray-500',
+        input: isDarkMode ? 'text-white' : 'text-gray-900',
+        option: isDarkMode ? 'text-white' : 'text-gray-900',
       },
       // Border colors
       border: {
         primary: isDarkMode ? 'border-gray-700' : 'border-gray-300',
         secondary: isDarkMode ? 'border-gray-600' : 'border-gray-200',
         card: isDarkMode ? 'shadow-sm border-gray-700' : 'shadow-sm border border-gray-100',
+        input: isDarkMode ? 'border-gray-600' : 'border-gray-300',
       },
       // Button colors
       button: {
