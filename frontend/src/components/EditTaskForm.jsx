@@ -4,7 +4,7 @@ import { useThemeContext } from "../contexts/ThemeContext";
 
 // We will pass the new Data to parent after edit icon clicked
 const EditTaskForm = ({ task, handleSubmitData }) => {
-  const { colors } = useThemeContext();
+  const { colors, isDarkMode } = useThemeContext();
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -42,7 +42,7 @@ const EditTaskForm = ({ task, handleSubmitData }) => {
           value={title}
           placeholder="Enter task title"
           onChange={(e) => setTitle(e.target.value)}
-          className={`w-full px-3 md:px-4 py-2.5 md:py-3 border ${colors.border.input} rounded-md md:rounded-lg ${colors.background.input} ${colors.text.primary} text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200`}
+          className={`w-full px-3 md:px-4 py-2.5 md:py-3 border ${colors.border.input} rounded-md md:rounded-lg ${colors.background.input} ${colors.text.input} text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200`}
           required
         />
       </div>
@@ -76,12 +76,40 @@ const EditTaskForm = ({ task, handleSubmitData }) => {
           id="edit-status"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className={`w-full px-3 md:px-4 py-2.5 md:py-3 border ${colors.border.input} rounded-md md:rounded-lg ${colors.background.input} ${colors.text.primary} text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200`}
+          className={`w-full px-3 md:px-4 py-2.5 md:py-3 border ${colors.border.input} rounded-md md:rounded-lg ${colors.background.input} ${colors.text.input} text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200`}
+          style={{
+            backgroundColor: isDarkMode ? '#374151' : '#ffffff',
+            color: isDarkMode ? '#ffffff' : '#111827'
+          }}
           required
         >
-          <option value="pending">Pending</option>
-          <option value="in_progress">In Progress</option>
-          <option value="completed">Completed</option>
+          <option 
+            value="pending"
+            style={{
+              backgroundColor: isDarkMode ? '#374151' : '#ffffff',
+              color: isDarkMode ? '#ffffff' : '#111827'
+            }}
+          >
+            Pending
+          </option>
+          <option 
+            value="in_progress"
+            style={{
+              backgroundColor: isDarkMode ? '#374151' : '#ffffff', 
+              color: isDarkMode ? '#ffffff' : '#111827'
+            }}
+          >
+            In Progress
+          </option>
+          <option 
+            value="completed"
+            style={{
+              backgroundColor: isDarkMode ? '#374151' : '#ffffff',
+              color: isDarkMode ? '#ffffff' : '#111827'
+            }}
+          >
+            Completed
+          </option>
         </select>
       </div>
 
