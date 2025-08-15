@@ -21,7 +21,7 @@ export const MainLayout = () => {
 
   const confirmLogout = async () => {
     await logout();
-    navigate('/Login');
+    navigate('/');
     setShowLogoutConfirm(false);
   }
 
