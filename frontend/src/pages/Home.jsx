@@ -5,6 +5,8 @@ import { useTaskContext } from "../contexts/TaskContext";
 import { useThemeContext } from "../contexts/ThemeContext";
 import { useAuthContext } from "../contexts/AuthContext";
 import { Plus, BarChart3, Clock, DollarSign, CheckCircle2, Filter, Search } from 'lucide-react';
+import tryImage from '../assets/try.png';
+import bgImage1 from '../assets/bg-image1.jpg';
 
 export const Home = () => {
   const { userTasks, addTask } = useTaskContext();
@@ -49,7 +51,7 @@ export const Home = () => {
             <div 
               className={`${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-blue-600 to-purple-600'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden`}
               style={{
-                backgroundImage: "url('/src/assets/try.png')",
+                backgroundImage: `url(${tryImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'
@@ -81,7 +83,7 @@ export const Home = () => {
             <div 
               className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-900'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-white h-full flex flex-col justify-between relative overflow-hidden`}
               style={{
-                backgroundImage: "url('/src/assets/bg-image1.jpg')",
+                backgroundImage: `url(${bgImage1})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'
