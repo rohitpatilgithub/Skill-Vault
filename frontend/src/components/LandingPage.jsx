@@ -62,11 +62,6 @@ const Navbar = () => {
             }`}>
               Features
             </button>
-            <button onClick={handleAbout} className={`transition-all duration-300 hover:scale-105 bg-transparent border-none ${
-              isDarkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'
-            }`}>
-              About
-            </button>
             <button onClick={() => scrollToSection('contact')} className={`transition-all duration-300 hover:scale-105 bg-transparent border-none ${
               isDarkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'
             }`}>
@@ -111,11 +106,6 @@ const Navbar = () => {
                 isDarkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'
               }`}>
                 Features
-              </button>
-              <button onClick={handleAbout} className={`text-left transition-colors duration-300 bg-transparent border-none ${
-                isDarkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'
-              }`}>
-                About
               </button>
               <button onClick={() => scrollToSection('contact')} className={`text-left transition-colors duration-300 bg-transparent border-none ${
                 isDarkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'
