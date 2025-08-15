@@ -18,7 +18,7 @@ const Navbar = () => {
 
     const confirmLogout = async () => {
         await logout();
-        navigate('/Login');
+        navigate('/');
         setShowLogoutConfirm(false);
     }
 
