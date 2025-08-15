@@ -100,7 +100,7 @@ const Navbar = () => {
 
             {/* Logout Confirmation Modal */}
             {showLogoutConfirm && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
                     <div className={`${colors.bg.secondary} rounded-xl md:rounded-2xl p-6 w-full max-w-sm mx-4 ${colors.border.primary} border`}>
                         <div className="text-center">
                             <div className={`w-12 h-12 mx-auto mb-4 ${isDarkMode ? 'bg-red-900/30' : 'bg-red-100'} rounded-full flex items-center justify-center`}>
