@@ -10,8 +10,7 @@ export const useThemeContext = () => {
   return context;
 };
 
-export const ThemeProvider = ({ children }) => {// Default to system preference
-return window.matchMedia('(prefers-color-scheme: dark)').matches;
+export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Check localStorage for saved theme preference
     const savedTheme = localStorage.getItem('theme');
