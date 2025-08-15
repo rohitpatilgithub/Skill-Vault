@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignupForm from "../components/SignupForm";
 import { useThemeContext } from "../contexts/ThemeContext";
+import API_CONFIG from "../config/api";
 import "../App.css";
 
 const Signup = () => {
@@ -12,7 +13,7 @@ const Signup = () => {
     setError("");
     setSuccess("");
     try {
-      const res = await fetch("http://localhost:3000/api/users/signup", {
+      const res = await fetch(API_CONFIG.USER.SIGNUP, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

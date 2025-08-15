@@ -3,6 +3,7 @@ import { Eye, EyeOff, ArrowRight, Mail, Lock, X, CheckCircle, AlertCircle, Alert
 import { useAuthContext } from "../contexts/AuthContext";
 import { useThemeContext } from "../contexts/ThemeContext";
 import { useNavigate } from "react-router-dom";
+import API_CONFIG from "../config/api";
 import loginImg from '../assets/loginpage.png'
 
 const Login = () => {
@@ -75,7 +76,7 @@ const Login = () => {
     setIsLoading(true);
     
     try {
-      const res = await fetch('http://localhost:3000/api/users/login', {
+      const res = await fetch(API_CONFIG.USER.LOGIN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useAuthContext } from './AuthContext';
+import API_CONFIG from '../config/api';
 
 const TaskContext = createContext();
 
@@ -25,7 +26,7 @@ export const TaskProvider = ({ children }) => {
   const fetchTasks = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("http://localhost:3000/api/tasks", {
+      const res = await fetch(API_CONFIG.TASK.GET_ALL, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export const TaskProvider = ({ children }) => {
       status: newTask.status || "not_started",
     };
     try {
-      const res = await fetch(`http://localhost:3000/api/tasks`, {
+      const res = await fetch(API_CONFIG.TASK.CREATE, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +78,7 @@ export const TaskProvider = ({ children }) => {
   const updateTask = async (taskData) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/tasks/${taskData._id}`,
+        API_CONFIG.TASK.UPDATE(taskData._id),
         {
           method: "PUT",
           headers: {
@@ -109,7 +110,7 @@ export const TaskProvider = ({ children }) => {
 
   const deleteTask = async (taskId) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+      const res = await fetch(API_CONFIG.TASK.DELETE(taskId), {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

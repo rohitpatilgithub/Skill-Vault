@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, ArrowRight, User, Mail, Lock, X, CheckCircle, AlertCircle, AlertTriangle, Info } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import { useThemeContext } from "../contexts/ThemeContext";
+import API_CONFIG from "../config/api";
 import signupImg from '../assets/signuppage.png'
 
 const Signup = () => {
@@ -93,7 +94,7 @@ const Signup = () => {
   // Your original signup logic preserved exactly
   const singupUser = async (signupData) => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/signup", {
+      const res = await fetch(API_CONFIG.USER.SIGNUP, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(signupData),
