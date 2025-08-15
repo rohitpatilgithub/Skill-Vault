@@ -1,0 +1,26 @@
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import userRoutes from './routes/UserR/user.routes.js';
+import { connectDB } from './config/db.js';
+import taskRoutes from './routes/TaskR/task.routes.js';
+
+
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+const PORT = process.env.PORT || 8080;
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
+
+app.use('/api/users',userRoutes);
+app.use('/api/tasks',taskRoutes);
+
+connectDB();
+app.listen(PORT , () => {
+    console.log(`Running at port ${PORT}`);
+})
