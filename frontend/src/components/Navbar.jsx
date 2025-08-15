@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuthContext } from '../contexts/AuthContext'
 import { useThemeContext } from '../contexts/ThemeContext'
@@ -9,11 +9,21 @@ const Navbar = () => {
     const { isDarkMode, toggleTheme, colors } = useThemeContext();
     const navigate = useNavigate();
     const location = useLocation();
+    const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
     const handleLogout = async(e) => {
         e.preventDefault();
+        setShowLogoutConfirm(true);
+    }
+
+    const confirmLogout = async () => {
         await logout();
-        navigate('/Login')
+        navigate('/Login');
+        setShowLogoutConfirm(false);
+    }
+
+    const cancelLogout = () => {
+        setShowLogoutConfirm(false);
     }
 
     const isActive = (path) => {
@@ -87,6 +97,39 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
+
+            {/* Logout Confirmation Modal */}
+            {showLogoutConfirm && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div className={`${colors.bg.secondary} rounded-xl md:rounded-2xl p-6 w-full max-w-sm mx-4 ${colors.border.primary} border`}>
+                        <div className="text-center">
+                            <div className={`w-12 h-12 mx-auto mb-4 ${isDarkMode ? 'bg-red-900/30' : 'bg-red-100'} rounded-full flex items-center justify-center`}>
+                                <LogOut className={`w-6 h-6 ${isDarkMode ? 'text-red-400' : 'text-red-600'}`} />
+                            </div>
+                            
+                            <h3 className={`text-lg font-semibold mb-2 ${colors.text.primary}`}>Confirm Logout</h3>
+                            <p className={`${colors.text.secondary} mb-6 text-sm`}>
+                                Are you sure you want to logout? You'll need to sign in again to access your tasks.
+                            </p>
+                            
+                            <div className="flex space-x-3">
+                                <button
+                                    onClick={cancelLogout}
+                                    className={`flex-1 px-4 py-2.5 ${colors.bg.tertiary} ${colors.text.secondary} rounded-lg hover:${colors.text.primary} transition-colors duration-200 font-medium text-sm`}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={confirmLogout}
+                                    className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium text-sm"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
