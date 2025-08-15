@@ -10,15 +10,16 @@ export const useThemeContext = () => {
   return context;
 };
 
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {// Default to system preference
+return window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Check localStorage for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       return savedTheme === 'dark';
     }
-    // Default to system preference
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Default to dark mode
+    return true;
   });
 
   useEffect(() => {
