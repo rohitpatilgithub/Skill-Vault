@@ -1,7 +1,23 @@
 # 🎯 SkillVault - Task Management Application
 
 **SkillVault** is a full-stack task management application built with the MERN stack, featuring a modern React frontend with Tailwind CSS and a robust Node.js/Express backend with MongoDB integration.
+## 🚀 Live Demo
 
+**[View Live Application](https://skill-vault-ten.vercel.app/)**
+
+<br>
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/38b7273c-b8ca-45ba-84cf-ecc35f8daf5c", 
+    width="700" 
+    style="border-radius:10px; margin-top:20px; margin-bottom:20px;" 
+  />
+</p>
+
+<br>
+
+---
 ## 🌟 Features
 
 - ✅ **User Authentication** - Secure JWT-based login/signup system
@@ -334,3 +350,4 @@ This project is licensed under the ISC License.
 ---
 
 **⭐ Star this repository if you found it helpful!**
+
