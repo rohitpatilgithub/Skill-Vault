@@ -88,11 +88,11 @@ export const Home = () => {
                 src={isDarkMode ? tryImage : tryImageWhite}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0"
-                style={{ transform: 'scale(1.18)', transformOrigin: 'center top' }}
+                style={{ transform: 'scale(1.28)', transformOrigin: 'center top' }}
               />
               <div className="relative z-10">
                 <h3 className="text-lg sm:text-xl font-bold mb-1">Create Task</h3>
-                <p className=`{${isDarkMode ? 'text-gray-300' : 'text-black'} text-gray-200 text-sm mb-4 sm:mb-6`}>Create a new task</p>
+                <p className={`${isDarkMode ? 'text-gray-200' : 'text-black'} text-sm mb-4 sm:mb-6`}>Create a new task</p>
               </div>
               
               <div className="space-y-3 sm:space-y-4 relative z-10">
