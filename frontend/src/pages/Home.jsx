@@ -81,14 +81,15 @@ export const Home = () => {
           {/* Right Section - Create Task Card */}
           <div className="xl:col-span-1">
             <div 
-              className={`${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 h-full flex flex-col justify-between relative overflow-hidden`}
-              style={{
-                  backgroundImage: `url(${isDarkMode ? tryImage : tryImageWhite})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundBlendMode: isDarkMode ? 'overlay' : 'none'
-                }}
+              className={`${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 h-full flex flex-col justify-between relative overflow-hidden`}
             >
+              {/* decorative background image (full-bleed inside card, no opacity) */}
+              <img
+                src={isDarkMode ? tryImage : tryImageWhite}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0"
+                style={{ transform: 'scale(1.18)', transformOrigin: 'center top' }}
+              />
               <div className="relative z-10">
                 <h3 className="text-lg sm:text-xl font-bold mb-1">Create Task</h3>
                 <p className="text-gray-200 text-sm mb-4 sm:mb-6">Create a new task</p>
