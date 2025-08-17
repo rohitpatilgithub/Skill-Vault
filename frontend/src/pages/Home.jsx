@@ -49,7 +49,7 @@ export const Home = () => {
           {/* Left Section - Welcome Message with Background */}
           <div className="xl:col-span-2">
             <div 
-              className={`${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-blue-600 to-purple-600'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden`}
+              className={`${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-blue-600 to-purple-600'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 ${isDarkMode ? 'text-white' : 'text-black'} relative overflow-hidden`}
                 style={{
                   backgroundImage: `url(${isDarkMode ? tryImage : tryImageWhite})`,
                   backgroundSize: 'cover',
@@ -59,19 +59,19 @@ export const Home = () => {
             >
               <div className="relative z-10">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-3">Hello {user?.username || 'User'} !</h1>
-                <p className={`${isDarkMode ? 'text-gray-300' : 'text-blue-100'} text-base md:text-lg mb-4 md:mb-6`}>It's good to see you again.</p>
+                <p className={`${isDarkMode ? 'text-gray-300' : 'text-black'} text-base md:text-lg mb-4 md:mb-6`}>It's good to see you again.</p>
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                   <div className="text-center">
                     <div className="text-xl sm:text-2xl font-bold">{totalTasks}</div>
-                    <div className={`${isDarkMode ? 'text-gray-400' : 'text-blue-100'} text-xs sm:text-sm`}>Total Tasks</div>
+                    <div className={`${isDarkMode ? 'text-gray-400' : 'text-black'} text-xs sm:text-sm`}>Total Tasks</div>
                   </div>
                   <div className="text-center">
                     <div className="text-xl sm:text-2xl font-bold">{completedTasks}</div>
-                    <div className={`${isDarkMode ? 'text-gray-400' : 'text-blue-100'} text-xs sm:text-sm`}>Completed</div>
+                    <div className={`${isDarkMode ? 'text-gray-400' : 'text-black'} text-xs sm:text-sm`}>Completed</div>
                   </div>
                   <div className="text-center">
                     <div className="text-xl sm:text-2xl font-bold">{inProgressTasks}</div>
-                    <div className={`${isDarkMode ? 'text-gray-400' : 'text-blue-100'} text-xs sm:text-sm`}>In Progress</div>
+                    <div className={`${isDarkMode ? 'text-gray-400' : 'text-black'} text-xs sm:text-sm`}>In Progress</div>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export const Home = () => {
           {/* Right Section - Create Task Card */}
           <div className="xl:col-span-1">
             <div 
-              className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-900'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-white h-full flex flex-col justify-between relative overflow-hidden`}
+              className={`${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 h-full flex flex-col justify-between relative overflow-hidden`}
               style={{
                   backgroundImage: `url(${isDarkMode ? tryImage : tryImageWhite})`,
                   backgroundSize: 'cover',
@@ -96,13 +96,13 @@ export const Home = () => {
               
               <div className="space-y-3 sm:space-y-4 relative z-10">
                 <div>
-                  <p className="text-gray-300 text-xs sm:text-sm mb-2">Quick Action</p>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm mb-2`}>Quick Action</p>
                   <button
                     onClick={() => setAdd(!add)}
-                    className={`flex items-center justify-between w-full ${isDarkMode ? 'bg-gray-700/50 hover:bg-gray-600/50' : 'bg-black/30 hover:bg-black/50'} backdrop-blur-sm text-white rounded-xl sm:rounded-2xl py-2.5 sm:py-3 px-3 sm:px-4 transition-all duration-200 group border border-white/20`}
+                    className={`flex items-center justify-between w-full ${isDarkMode ? 'bg-gray-700/50 hover:bg-gray-600/50 text-white' : 'bg-white hover:bg-gray-50 text-black'} rounded-xl sm:rounded-2xl py-2.5 sm:py-3 px-3 sm:px-4 transition-all duration-200 group border ${isDarkMode ? 'border-white/20' : 'border-gray-200'}`}
                   >
                     <span className="font-medium text-sm sm:text-base">+ New Task</span>
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-md sm:rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                    <div className={`w-6 h-6 sm:w-8 sm:h-8 ${isDarkMode ? 'bg-white' : 'bg-gray-100'} rounded-md sm:rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
                       <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-900" />
                     </div>
                   </button>
