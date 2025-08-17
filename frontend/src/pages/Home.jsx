@@ -92,7 +92,7 @@ export const Home = () => {
               />
               <div className="relative z-10">
                 <h3 className="text-lg sm:text-xl font-bold mb-1">Create Task</h3>
-                <p className="text-gray-200 text-sm mb-4 sm:mb-6">Create a new task</p>
+                <p className=`{${isDarkMode ? 'text-gray-300' : 'text-black'} text-gray-200 text-sm mb-4 sm:mb-6`}>Create a new task</p>
               </div>
               
               <div className="space-y-3 sm:space-y-4 relative z-10">
