@@ -6,7 +6,7 @@ import { useThemeContext } from "../contexts/ThemeContext";
 import { useAuthContext } from "../contexts/AuthContext";
 import { Plus, BarChart3, Clock, DollarSign, CheckCircle2, Filter, Search } from 'lucide-react';
 import tryImage from '../assets/try.png';
-import bgImage1 from '../assets/bg-image1.jpg';
+import tryImageWhite from '../assets/white try.png';
 
 export const Home = () => {
   const { userTasks, addTask } = useTaskContext();
@@ -50,12 +50,12 @@ export const Home = () => {
           <div className="xl:col-span-2">
             <div 
               className={`${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-blue-600 to-purple-600'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white relative overflow-hidden`}
-              style={{
-                backgroundImage: `url(${tryImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundBlendMode: 'overlay'
-              }}
+                style={{
+                  backgroundImage: `url(${isDarkMode ? tryImage : tryImageWhite})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundBlendMode: isDarkMode ? 'overlay' : 'none'
+                }}
             >
               <div className="relative z-10">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-3">Hello {user?.username || 'User'} !</h1>
@@ -83,11 +83,11 @@ export const Home = () => {
             <div 
               className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-900'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-white h-full flex flex-col justify-between relative overflow-hidden`}
               style={{
-                backgroundImage: `url(${bgImage1})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundBlendMode: 'overlay'
-              }}
+                  backgroundImage: `url(${isDarkMode ? tryImage : tryImageWhite})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundBlendMode: isDarkMode ? 'overlay' : 'none'
+                }}
             >
               <div className="relative z-10">
                 <h3 className="text-lg sm:text-xl font-bold mb-1">Create Task</h3>
